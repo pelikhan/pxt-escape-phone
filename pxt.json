@@ -1,0 +1,16 @@
+{
+    "name": "pxt-escape-phone",
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "preferredEditor": "blocksprj",
+    "testFiles": [
+        "test.ts"
+    ]
+}
