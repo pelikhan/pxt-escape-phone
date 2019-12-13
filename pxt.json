@@ -1,15 +1,16 @@
 {
-    "name": "pxt-escape-phone",
+    "name": "escape-phone",
     "files": [
-        "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "phone.ts"
     ],
     "dependencies": {
         "core": "*",
-        "radio": "*"
+        "radio": "*",
+        "escape": "github:pelikhan/pxt-escape#v0.0.2"
     },
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "testFiles": [
         "test.ts"
     ]
