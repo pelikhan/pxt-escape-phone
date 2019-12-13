@@ -35,7 +35,6 @@ let row = 0
 let pulseCount = 0
 let code = ""
 let lastPulseMs = 0
-radio.setGroup(1)
 lastPulseMs = 0
 code = ""
 pulseCount = 0
@@ -51,8 +50,11 @@ basic.forever(function () {
     } else if (lastPulseMs == 0 && (code.length > 0 && (code.length == 10 || input.runningTime() - lastDigitMs >= 3000))) {
         led.plot(2, 0)
         codeNumber = parseFloat(code)
-        for (let index = 0; index < 1; index++) {
-            radio.sendNumber(codeNumber)
+        for (let index = 0; index < 2; index++) {
+            const b = control.createBuffer(5);
+            b[0] = escape.CODE;
+            b.setNumber(NumberFormat.UInt32LE, 1, codeNumber);
+            radio.sendBuffer(b);
             basic.pause(10)
         }
         basic.clearScreen()
