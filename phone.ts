@@ -45,7 +45,7 @@ basic.forever(function () {
     if (lastPulseMs > 0
         && input.runningTime() - lastPulseMs >= 250) {
         // received a digit
-        led.plot(1, 0)
+        //led.plot(1, 0)
         // 0 is encoded as 10 pulses
         if (pulseCount == 10)
             pulseCount = 0
@@ -55,22 +55,22 @@ basic.forever(function () {
     } else if (lastPulseMs == 0
         && code.length > 0
         && (code.length == 10 || input.runningTime() - lastDigitMs >= 3000)) {
-        led.plot(2, 0)
+        //led.plot(2, 0)
         codeNumber = parseFloat(code)
         basic.clearScreen();
         sendCode();
         basic.pause(1000);
         reset();
     } else {
-        led.unplot(1, 0)
-        led.unplot(2, 0)
+        //led.unplot(1, 0)
+        //led.unplot(2, 0)
     }
 });
 
 // display loop
 basic.forever(function () {
     if (codeNumber > -1) {
-        led.toggle(Math.randomRange(0, 4), Math.randomRange(0, 4))
+        game.addScore(1)
     } else if (code.length) // display last digit
         basic.showString(code[code.length - 1]);
     else // waiting for numbers
