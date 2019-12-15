@@ -1,6 +1,7 @@
 # pxt-escape-phone ![Build status badge](https://github.com/pelikhan/pxt-escape-phone/workflows/MakeCode/badge.svg)
 
-
+This program sends code dialed into a rotary phone
+used in the [escape](https://github.com/pelikhan/pxt-escape) system.
 
 ## Use this extension
 
