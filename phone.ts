@@ -27,6 +27,7 @@ pins.onPulsed(DigitalPin.P0, PulseValue.Low, function () {
     } else if (input.runningTime() - lastPulseMs > 85) {
         pulseCount += 1
         lastPulseMs = input.runningTime()
+        escape.broadcastMessage(escape.CODE_IMPULSE);
     }
 })
 
@@ -52,6 +53,10 @@ basic.forever(function () {
         code += convertToText(pulseCount)
         lastPulseMs = 0
         lastDigitMs = input.runningTime()
+        const b = control.createBuffer(2);
+        b[0] = escape.CODE_DIGIT;
+        b[1] = pulseCount;
+        radio.sendBuffer(b);        
     } else if (lastPulseMs == 0
         && code.length > 0
         && (code.length == 10 || input.runningTime() - lastDigitMs >= 3000)) {
