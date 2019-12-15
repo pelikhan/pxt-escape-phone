@@ -73,7 +73,7 @@ basic.forever(function () {
 });
 
 // display loop
-basic.forever(function () {
+escape.onUpdate(function () {
     if (codeNumber > -1) {
         game.addScore(1)
     } else if (code.length) // display last digit
