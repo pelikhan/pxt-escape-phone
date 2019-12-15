@@ -11,13 +11,13 @@ function plotIndex(i: number, on: boolean) {
     }
 }
 function codeDots() {
-    for (let index = 0; index <= 4; index++) {
-        led.plot(index, 2)
-    }
-    for (let index2 = 0; index2 <= 9; index2++) {
-        plotIndex(15 + index2, index2 < code.length)
+    if (code.length)
+        basic.showString(code[code.length - 1]);
+    else {
+        basic.showString("-");
     }
 }
+
 pins.onPulsed(DigitalPin.P0, PulseValue.Low, function () {
     led.unplot(0, 0)
     if (lastPulseMs == 0) {
@@ -38,6 +38,8 @@ let lastPulseMs = 0
 lastPulseMs = 0
 code = ""
 pulseCount = 0
+
+// decoding
 basic.forever(function () {
     if (lastPulseMs > 0 && input.runningTime() - lastPulseMs >= 250) {
         led.plot(1, 0)
@@ -66,5 +68,9 @@ basic.forever(function () {
         led.unplot(1, 0)
         led.unplot(2, 0)
     }
+});
+
+// display
+basic.forever(function () {
     codeDots()
 })
