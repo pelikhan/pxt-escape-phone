@@ -57,6 +57,7 @@ basic.forever(function () {
         && (code.length == 10 || input.runningTime() - lastDigitMs >= 3000)) {
         led.plot(2, 0)
         codeNumber = parseFloat(code)
+        basic.clearScreen();
         sendCode();
         basic.pause(1000);
         reset();
@@ -68,9 +69,9 @@ basic.forever(function () {
 
 // display loop
 basic.forever(function () {
-    if (codeNumber > -1)
-        game.addScore(1) // win animation
-    else if (code.length) // display last digit
+    if (codeNumber > -1) {
+        led.toggle(Math.randomRange(0, 4), Math.randomRange(0, 4))
+    } else if (code.length) // display last digit
         basic.showString(code[code.length - 1]);
     else // waiting for numbers
         basic.showString("-");
