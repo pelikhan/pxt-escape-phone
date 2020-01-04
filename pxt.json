@@ -8,7 +8,7 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "escape": "github:pelikhan/pxt-escape#v0.2.6"
+        "escape": "github:pelikhan/pxt-escape#v0.2.8"
     },
     "preferredEditor": "tsprj",
     "testFiles": [
