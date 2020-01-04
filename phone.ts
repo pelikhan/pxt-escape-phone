@@ -33,10 +33,7 @@ pins.onPulsed(DigitalPin.P0, PulseValue.Low, function () {
 
 function sendCode() {
     for (let index = 0; index < 2; index++) {
-        const b = control.createBuffer(5);
-        b[0] = escape.CODE;
-        b.setNumber(NumberFormat.UInt32LE, 1, codeNumber);
-        radio.sendBuffer(b);
+        escape.broadcastMessageNumber(escape.CODE, codeNumber);
         basic.pause(10)
     }
 }

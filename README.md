@@ -3,16 +3,7 @@
 This program sends code dialed into a rotary phone
 used in the [escape](https://github.com/pelikhan/pxt-escape) system.
 
-## Use this extension
-
-This repository can be added as an **extension** in MakeCode.
-
-* open https://makecode.microbit.org/
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for the URL of this repository and import
-
-## Edit this extension
+## Edit this project
 
 To edit this repository in MakeCode.
 
