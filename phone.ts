@@ -32,10 +32,7 @@ pins.onPulsed(DigitalPin.P0, PulseValue.Low, function () {
 })
 
 function sendCode() {
-    for (let index = 0; index < 2; index++) {
-        escape.broadcastMessageNumber(escape.CODE, codeNumber);
-        basic.pause(10)
-    }
+    escape.broadcastCodeMessage(codeNumber);
 }
 
 // pulse decoding
@@ -74,7 +71,7 @@ escape.onUpdate(function () {
     if (codeNumber > -1) {
         game.addScore(1)
     } else if (code.length) // display last digit
-        basic.showString(code[code.length - 1]);
+        basic.showString(code[code.length - 1], 10);
     else // waiting for numbers
         basic.showString("-");
 })
