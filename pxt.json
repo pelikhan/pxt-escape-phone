@@ -8,11 +8,14 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "escape": "github:pelikhan/pxt-escape#v0.2.9"
+        "escape": "github:pelikhan/pxt-escape#v0.2.11"
     },
     "preferredEditor": "tsprj",
     "testFiles": [
         "test.ts"
     ],
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "supportedTargets": [
+        "microbit"
+    ]
 }
